@@ -1,5 +1,5 @@
 import React from 'react';
-
+//this is a simply stateless
 class AboutPage extends React.Component{
     render(){
         return(
