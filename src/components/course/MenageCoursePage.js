@@ -1,9 +1,9 @@
 import React, {PropTypes} from  'react';
 import {connect} from 'react-redux';
-import {BindActionCreators} from 'react-redux';
-import { bindActionCreators } from '../../../../../../Library/Caches/typescript/2.6/node_modules/redux';
+import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
 import CourseForm from './CourseForm';
+
 class MenageCoursePage extends React.Component{
     constructor(props, context){
         super(props, context);
@@ -12,12 +12,22 @@ class MenageCoursePage extends React.Component{
             course: Object.assign({}, props.course),
             errors: {}
         };
+
+        this.updateCourseState = this.updateCourseState.bind(this);
+    }
+
+    updateCourseState(event){
+      const field = event.target.name;
+      let course = Object.assign({}, this.state.course);
+      course[field] = event.target.value;
+      return this.setState({course: course})
     }
 
     render(){
         return(
             <CourseForm
                 allAuthors={this.props.authors}
+                onChange={this.updateCourseState}
                 course={this.state.course}
                 errors={this.state.errors}/>
         );
