@@ -18,7 +18,7 @@ class MenageCoursePage extends React.Component{
 
     componentWillReceiveProps(nextProps){
       if(this.props.course.id != nextProps.course.id){
-        this.setState({course: Object.assign({}, nextProps.courses)});
+        this.setState({course: Object.assign({}, nextProps.course)});
       }
     }
 
