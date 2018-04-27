@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {Link, IndexLink} from 'react-router';
 import LoadingDots from './LoadingDots';
-
+//debugger
 const Header = ({loading}) => {
     return(
         <nav>

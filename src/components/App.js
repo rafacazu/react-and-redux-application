@@ -17,7 +17,7 @@ App.propTypes = {
     children: PropTypes.object.isRequired,
     loading: PropTypes.bool.isRequired
 };
-
+debugger
 function mapStateToProps(state, ownProps){
   return{
     loading: state.ajaxCallsInProgress > 0

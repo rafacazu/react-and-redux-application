@@ -3,7 +3,7 @@ import React, {PropTypes} from 'react';
 class LoadingDots extends React.Component {
   constructor(props, context) {
     super(props, context);
-
+    debugger
     this.state = {frame: 1};
   }
 
