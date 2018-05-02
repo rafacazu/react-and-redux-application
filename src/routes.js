@@ -5,7 +5,7 @@ import AboutPage from './components/about/aboutPage';
 import HomePage from './components/home/homePage';
 import CoursesPage from './components/course/CoursesPage';
 import { component } from 'react-router/lib/PropTypes';
-import MenageCoursePage from './components/course/MenageCoursePage';
+import ManageCoursePage from './components/course/ManageCoursePage'; //eslint-disable-line import/no-named-as-default
 
 //items inside of Route component={App} can be retrieved on App.js as {this.props.children}
 export default (
@@ -13,7 +13,7 @@ export default (
         <IndexRoute component={HomePage} />
         <Route path="about" component={AboutPage} />
         <Route path="courses" component={CoursesPage} />
-        <Route path="course" component={MenageCoursePage} />
-        <Route path="course/:id" component={MenageCoursePage} />
+        <Route path="course" component={ManageCoursePage} />
+        <Route path="course/:id" component={ManageCoursePage} />
     </Route>
 );
