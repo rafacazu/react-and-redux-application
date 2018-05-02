@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
 import CourseForm from './CourseForm';
-import toastr from 'toastr'
+import toastr from 'toastr';
 
 class MenageCoursePage extends React.Component{
     constructor(props, context){
@@ -28,7 +28,7 @@ class MenageCoursePage extends React.Component{
       const field = event.target.name;
       let course = Object.assign({}, this.state.course);
       course[field] = event.target.value;
-      return this.setState({course: course})
+      return this.setState({course: course});
     }
 
     saveCourse(event){
@@ -36,11 +36,11 @@ class MenageCoursePage extends React.Component{
       this.setState({saving: true});
       this.props.actions.saveCourse(this.state.course)
       .then(() => {
-        this.redirect()
+        this.redirect();
       }).catch(error => {
-        toastr.error(error)
+        toastr.error(error);
         this.setState({saving: false});
-      })
+      });
 
     }
 
@@ -71,7 +71,7 @@ MenageCoursePage.propTypes = {
 
 MenageCoursePage.contextTypes = {
   router: PropTypes.object
-}
+};
 
 function getCourseById(courses, id){
   const course = courses.filter(course => course.id == id);
@@ -82,7 +82,7 @@ function getCourseById(courses, id){
 function mapStateToProps(state, ownProps){
 
   const courseId = ownProps.params.id; //from the path '/course/:id'
-  let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''}
+  let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
 
     if(courseId && state.courses.length > 0){
       course = getCourseById(state.courses, courseId);
@@ -93,8 +93,8 @@ function mapStateToProps(state, ownProps){
         return {
             value: author.id,
             text: author.firstName + ' ' + author.lastName
-        }
-    })
+        };
+    });
     return {
         course: course,
         authors: authorsFormattedForDropDown
@@ -104,7 +104,7 @@ function mapStateToProps(state, ownProps){
 function mapDispatchToProps(dispatch){
     return {
         actions: bindActionCreators(courseActions, dispatch)
-    }
+    };
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(MenageCoursePage);
