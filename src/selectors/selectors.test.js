@@ -10,7 +10,7 @@ describe('Author Selectors', () => {
       ];
 
       const expected = [
-        {value:'cory-house', text: 'Cory House..'},
+        {value:'cory-house', text: 'Cory House'},
         {value:'scott-allen', text:'Scott Allen'}
       ];
       expect(authorsFormattedForDropdown(authors)).toEqual(expected);
